@@ -30,13 +30,13 @@ public class ListSplitterUtilTest {
 
     @Test
     public void nullTestShouldReturnNull() throws SplitterException {
-        List<List<?>> result = ListSplitterUtil.split(null, 2);
+        List<List<Integer>> result = ListSplitterUtil.split(null, 2);
         Assert.assertEquals("Case list null : This list should be null", result, null);
     }
 
     @Test
     public void emptyListTestShouldReturnNull() throws SplitterException {
-        List<List<?>> result = ListSplitterUtil.split(new ArrayList<Integer>(), 2);
+        List<List<Integer>> result = ListSplitterUtil.split(new ArrayList<Integer>(), 2);
         Assert.assertEquals("Case list empty : This list should be null", result, null);
     }
 
@@ -44,7 +44,7 @@ public class ListSplitterUtilTest {
     public void listSmallerSizeTestShouldReturnAListOf() throws SplitterException {
         ArrayList<Integer> givenList = new ArrayList<Integer>();
         givenList.add(1);
-        List<List<?>> resultList = ListSplitterUtil.split(givenList, 2);
+        List<List<Integer>> resultList = ListSplitterUtil.split(givenList, 2);
 
         Assert.assertEquals("Case size < number : This result should be a list containing the given list", new ArrayList<List<Integer>>(Arrays.asList(givenList)), resultList);
 
@@ -64,7 +64,7 @@ public class ListSplitterUtilTest {
         List<Integer> expectedSublist3 = Arrays.asList(5);
         List<List<Integer>> expectedList = new ArrayList<List<Integer>>(Arrays.asList(expectedSubList1, expectedSubList2, expectedSublist3));
 
-        List<List<?>> resultList = ListSplitterUtil.split(givenList, 2);
+        List<List<Integer>> resultList = ListSplitterUtil.split(givenList, 2);
 
         Assert.assertEquals("Test case with rest of elements : This list should return sublists with 2 elements max", expectedList, resultList);
     }
@@ -78,7 +78,7 @@ public class ListSplitterUtilTest {
         List<Integer> expectedSubList2 = Arrays.asList(4, 5);
         List<List<Integer>> expectedList = new ArrayList<List<Integer>>(Arrays.asList(expectedSubList1, expectedSubList2));
 
-        List<List<?>> resultList = ListSplitterUtil.split(givenList, 3);
+        List<List<Integer>> resultList = ListSplitterUtil.split(givenList, 3);
 
         Assert.assertEquals("Test case with rest of elements : this list should result sublists with 3 elements max", expectedList, resultList);
     }
@@ -95,7 +95,7 @@ public class ListSplitterUtilTest {
         List<Integer> expectedSubList5 = Arrays.asList(5);
         List<List<Integer>> expectedList = new ArrayList<List<Integer>>(Arrays.asList(expectedSubList1, expectedSubList2, expectedSubList3, expectedSubList4, expectedSubList5));
 
-        List<List<?>> resultList = ListSplitterUtil.split(givenList, 1);
+        List<List<Integer>> resultList = ListSplitterUtil.split(givenList, 1);
 
         Assert.assertEquals("Test case with 1 element each : This list should be a list of lists of 1 element", expectedList, resultList);
     }

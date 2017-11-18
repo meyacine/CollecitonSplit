@@ -18,7 +18,7 @@ public abstract class ListSplitterUtil {
      * @return
      * @throws SplitterException
      */
-    public static List<List<?>> split(List<?> list, int number) throws SplitterException {
+    public static <T extends Object> List<List<T>> split(List<T> list, int number) throws SplitterException {
 
         if (number < 0) {
             throw new SplitterException("The given number of elements is invalid : " + number + " Please give a positive value");
@@ -29,13 +29,13 @@ public abstract class ListSplitterUtil {
         }
 
         if (list.size() <= number) {
-            ArrayList<List<?>> lists = new ArrayList<List<?>>();
+            ArrayList<List<T>> lists = new ArrayList<List<T>>();
             lists.add(list);
             return lists;
         }
 
-        List<List<?>> result = new ArrayList<List<?>>();
-        List<Object> subList = new ArrayList<Object>();
+        List<List<T>> result = new ArrayList<List<T>>();
+        List<T> subList = new ArrayList<T>();
         result.add(subList);
         int sublistIndex = 0;
 
@@ -44,7 +44,7 @@ public abstract class ListSplitterUtil {
 
             if (sublistIndex != currentSublistIndex) {
                 // we start a new sublist
-                subList = new ArrayList<Object>();
+                subList = new ArrayList<T>();
                 result.add(subList);
 
                 sublistIndex = currentSublistIndex;
