@@ -1,6 +1,6 @@
+package com.yacine.collections.utils;
 
 import com.yacine.collections.exceptions.SplitterException;
-import com.yacine.collections.utils.ListSplitterUtil;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
