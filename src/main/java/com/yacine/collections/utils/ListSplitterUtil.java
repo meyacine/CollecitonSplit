@@ -11,24 +11,24 @@ import java.util.List;
 public abstract class ListSplitterUtil {
     /**
      * Splits Elements of a given list and return a list of sublists of elements
-     * Note that negative number value, will throw a {@link SplitterException}
+     * Note that negative partitionSize value, will throw a {@link SplitterException}
      *
      * @param list
-     * @param number
+     * @param partitionSize
      * @return
      * @throws SplitterException
      */
-    public static <T extends Object> List<List<T>> split(List<T> list, int number) throws SplitterException {
+    public static <T extends Object> List<List<T>> split(List<T> list, int partitionSize) throws SplitterException {
 
-        if (number < 0) {
-            throw new SplitterException("The given number of elements is invalid : " + number + " Please give a positive value");
+        if (partitionSize < 0) {
+            throw new SplitterException("The given partitionSize of elements is invalid : " + partitionSize + " Please give a positive value");
         }
 
         if (list == null || list.size() == 0) {
             return null;
         }
 
-        if (list.size() <= number) {
+        if (list.size() <= partitionSize) {
             ArrayList<List<T>> lists = new ArrayList<List<T>>();
             lists.add(list);
             return lists;
@@ -40,7 +40,7 @@ public abstract class ListSplitterUtil {
         int sublistIndex = 0;
 
         for (int i = 0; i < list.size(); i++) {
-            int currentSublistIndex = i / number;
+            int currentSublistIndex = i / partitionSize;
 
             if (sublistIndex != currentSublistIndex) {
                 // we start a new sublist

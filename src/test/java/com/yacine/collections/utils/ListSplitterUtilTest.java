@@ -24,7 +24,7 @@ public class ListSplitterUtilTest {
         givenList.add(1);
         thrown.expect(SplitterException.class);
         int givenNumber = -1;
-        thrown.expectMessage("The given number of elements is invalid : " + givenNumber + " Please give a positive value");
+        thrown.expectMessage("The given partitionSize of elements is invalid : " + givenNumber + " Please give a positive value");
         ListSplitterUtil.split(givenList, givenNumber);
     }
 
