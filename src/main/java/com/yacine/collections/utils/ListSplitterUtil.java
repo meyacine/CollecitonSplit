@@ -8,10 +8,11 @@ import java.util.List;
 /**
  * Created by meyacine on 18/11/2017.
  */
-public abstract class SplitterUtil {
+public abstract class ListSplitterUtil {
     /**
      * Splits Elements of a given list and return a list of sublists of elements
      * Note that negative number value, will throw a {@link SplitterException}
+     *
      * @param list
      * @param number
      * @return
@@ -27,14 +28,14 @@ public abstract class SplitterUtil {
             return null;
         }
 
-        if (list.size() <= number){
+        if (list.size() <= number) {
             ArrayList<List<?>> lists = new ArrayList<List<?>>();
             lists.add(list);
             return lists;
         }
 
         List<List<?>> result = new ArrayList<List<?>>();
-        List<Object> subList =  new ArrayList<Object>();
+        List<Object> subList = new ArrayList<Object>();
         result.add(subList);
         int sublistIndex = 0;
 

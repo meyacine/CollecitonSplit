@@ -1,6 +1,6 @@
 
 import com.yacine.collections.exceptions.SplitterException;
-import com.yacine.collections.utils.SplitterUtil;
+import com.yacine.collections.utils.ListSplitterUtil;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by meyacine on 18/11/2017.
  */
-public class SplitterUtilTest {
+public class ListSplitterUtilTest {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -25,18 +25,18 @@ public class SplitterUtilTest {
         thrown.expect(SplitterException.class);
         int givenNumber = -1;
         thrown.expectMessage("The given number of elements is invalid : " + givenNumber + " Please give a positive value");
-        SplitterUtil.split(givenList, givenNumber);
+        ListSplitterUtil.split(givenList, givenNumber);
     }
 
     @Test
     public void nullTestShouldReturnNull() throws SplitterException {
-        List<List<?>> result = SplitterUtil.split(null, 2);
+        List<List<?>> result = ListSplitterUtil.split(null, 2);
         Assert.assertEquals("Case list null : This list should be null", result, null);
     }
 
     @Test
     public void emptyListTestShouldReturnNull() throws SplitterException {
-        List<List<?>> result = SplitterUtil.split(new ArrayList<Integer>(), 2);
+        List<List<?>> result = ListSplitterUtil.split(new ArrayList<Integer>(), 2);
         Assert.assertEquals("Case list empty : This list should be null", result, null);
     }
 
@@ -44,12 +44,12 @@ public class SplitterUtilTest {
     public void listSmallerSizeTestShouldReturnAListOf() throws SplitterException {
         ArrayList<Integer> givenList = new ArrayList<Integer>();
         givenList.add(1);
-        List<List<?>> resultList = SplitterUtil.split(givenList, 2);
+        List<List<?>> resultList = ListSplitterUtil.split(givenList, 2);
 
         Assert.assertEquals("Case size < number : This result should be a list containing the given list", new ArrayList<List<Integer>>(Arrays.asList(givenList)), resultList);
 
         givenList.add(2);
-        resultList = SplitterUtil.split(givenList, 2);
+        resultList = ListSplitterUtil.split(givenList, 2);
 
         Assert.assertEquals("Case size == number : This result should be a list containing the given list", new ArrayList<List<Integer>>(Arrays.asList(givenList)), resultList);
     }
@@ -64,7 +64,7 @@ public class SplitterUtilTest {
         List<Integer> expectedSublist3 = Arrays.asList(5);
         List<List<Integer>> expectedList = new ArrayList<List<Integer>>(Arrays.asList(expectedSubList1, expectedSubList2, expectedSublist3));
 
-        List<List<?>> resultList = SplitterUtil.split(givenList, 2);
+        List<List<?>> resultList = ListSplitterUtil.split(givenList, 2);
 
         Assert.assertEquals("Test case with rest of elements : This list should return sublists with 2 elements max", expectedList, resultList);
     }
@@ -78,7 +78,7 @@ public class SplitterUtilTest {
         List<Integer> expectedSubList2 = Arrays.asList(4, 5);
         List<List<Integer>> expectedList = new ArrayList<List<Integer>>(Arrays.asList(expectedSubList1, expectedSubList2));
 
-        List<List<?>> resultList = SplitterUtil.split(givenList, 3);
+        List<List<?>> resultList = ListSplitterUtil.split(givenList, 3);
 
         Assert.assertEquals("Test case with rest of elements : this list should result sublists with 3 elements max", expectedList, resultList);
     }
@@ -95,7 +95,7 @@ public class SplitterUtilTest {
         List<Integer> expectedSubList5 = Arrays.asList(5);
         List<List<Integer>> expectedList = new ArrayList<List<Integer>>(Arrays.asList(expectedSubList1, expectedSubList2, expectedSubList3, expectedSubList4, expectedSubList5));
 
-        List<List<?>> resultList = SplitterUtil.split(givenList, 1);
+        List<List<?>> resultList = ListSplitterUtil.split(givenList, 1);
 
         Assert.assertEquals("Test case with 1 element each : This list should be a list of lists of 1 element", expectedList, resultList);
     }
