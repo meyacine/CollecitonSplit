@@ -20,7 +20,7 @@ public class ListSplitterUtilTest {
 
     @Test
     public void negativeNumberTestShouldThrowSplitterException() throws SplitterException {
-        ArrayList<Integer> givenList = new ArrayList<Integer>();
+        ArrayList<Integer> givenList = new ArrayList<>();
         givenList.add(1);
         thrown.expect(SplitterException.class);
         int givenNumber = -1;
@@ -42,7 +42,7 @@ public class ListSplitterUtilTest {
 
     @Test
     public void partitionSizeTestShouldNotThrowDivisionByZero() throws SplitterException {
-        ArrayList<Integer> givenList = new ArrayList<Integer>();
+        ArrayList<Integer> givenList = new ArrayList<>();
         givenList.add(1);
         List<List<Integer>> result = ListSplitterUtil.split(givenList, 0);
 
@@ -51,7 +51,7 @@ public class ListSplitterUtilTest {
 
     @Test
     public void listSmallerSizeTestShouldReturnAListOf() throws SplitterException {
-        ArrayList<Integer> givenList = new ArrayList<Integer>();
+        ArrayList<Integer> givenList = new ArrayList<>();
         givenList.add(1);
         List<List<Integer>> resultList = ListSplitterUtil.split(givenList, 2);
 
@@ -71,7 +71,7 @@ public class ListSplitterUtilTest {
         List<Integer> expectedSubList1 = Arrays.asList(1, 2);
         List<Integer> expectedSubList2 = Arrays.asList(3, 4);
         List<Integer> expectedSublist3 = Arrays.asList(5);
-        List<List<Integer>> expectedList = new ArrayList<List<Integer>>(Arrays.asList(expectedSubList1, expectedSubList2, expectedSublist3));
+        List<List<Integer>> expectedList = new ArrayList<>(Arrays.asList(expectedSubList1, expectedSubList2, expectedSublist3));
 
         List<List<Integer>> resultList = ListSplitterUtil.split(givenList, 2);
 
@@ -85,7 +85,7 @@ public class ListSplitterUtilTest {
 
         List<Integer> expectedSubList1 = Arrays.asList(1, 2, 3);
         List<Integer> expectedSubList2 = Arrays.asList(4, 5);
-        List<List<Integer>> expectedList = new ArrayList<List<Integer>>(Arrays.asList(expectedSubList1, expectedSubList2));
+        List<List<Integer>> expectedList = new ArrayList<>(Arrays.asList(expectedSubList1, expectedSubList2));
 
         List<List<Integer>> resultList = ListSplitterUtil.split(givenList, 3);
 

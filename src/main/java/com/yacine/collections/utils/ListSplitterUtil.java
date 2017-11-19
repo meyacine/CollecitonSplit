@@ -29,13 +29,13 @@ public abstract class ListSplitterUtil {
         }
 
         if (list.size() <= partitionSize || partitionSize == 0) {
-            ArrayList<List<T>> lists = new ArrayList<List<T>>();
+            ArrayList<List<T>> lists = new ArrayList<>();
             lists.add(list);
             return lists;
         }
 
-        List<List<T>> result = new ArrayList<List<T>>();
-        List<T> subList = new ArrayList<T>();
+        List<List<T>> result = new ArrayList<>();
+        List<T> subList = new ArrayList<>();
         result.add(subList);
         int sublistIndex = 0;
 
@@ -44,7 +44,7 @@ public abstract class ListSplitterUtil {
 
             if (sublistIndex != currentSublistIndex) {
                 // we start a new sublist
-                subList = new ArrayList<T>();
+                subList = new ArrayList<>();
                 result.add(subList);
 
                 sublistIndex = currentSublistIndex;
