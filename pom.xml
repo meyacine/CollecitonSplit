@@ -11,6 +11,9 @@
 
     <properties>
         <junit.version>4.12</junit.version>
+        <!--https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html-->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -21,6 +24,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 
 </project>
