@@ -18,7 +18,7 @@ public abstract class ListSplitterUtil {
      * @return
      * @throws SplitterException
      */
-    public static <T extends Object> List<List<T>> split(List<T> list, int partitionSize) throws SplitterException {
+    public static <T> List<List<T>> split(List<T> list, int partitionSize) throws SplitterException {
 
         if (partitionSize < 0) {
             throw new SplitterException("The given partitionSize of elements is invalid : " + partitionSize + " Please give a positive value");
@@ -46,7 +46,6 @@ public abstract class ListSplitterUtil {
                 // we start a new sublist
                 subList = new ArrayList<>();
                 result.add(subList);
-
                 sublistIndex = currentSublistIndex;
             }
 
