@@ -41,6 +41,15 @@ public class ListSplitterUtilTest {
     }
 
     @Test
+    public void partitionSizeTestShouldNotThrowDivisionByZero() throws SplitterException {
+        ArrayList<Integer> givenList = new ArrayList<Integer>();
+        givenList.add(1);
+        List<List<Integer>> result = ListSplitterUtil.split(givenList, 0);
+
+        Assert.assertEquals("Case partitionSize 0 : This list should be a list containing the given list", new ArrayList<List<Integer>>(Arrays.asList(givenList)), result);
+    }
+
+    @Test
     public void listSmallerSizeTestShouldReturnAListOf() throws SplitterException {
         ArrayList<Integer> givenList = new ArrayList<Integer>();
         givenList.add(1);

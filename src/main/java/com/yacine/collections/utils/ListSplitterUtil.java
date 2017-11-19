@@ -28,7 +28,7 @@ public abstract class ListSplitterUtil {
             return null;
         }
 
-        if (list.size() <= partitionSize) {
+        if (list.size() <= partitionSize || partitionSize == 0) {
             ArrayList<List<T>> lists = new ArrayList<List<T>>();
             lists.add(list);
             return lists;
